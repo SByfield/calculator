@@ -62,43 +62,33 @@ let showFullEq = false;
 function getInput(){
     userInput = this.value;
     
-    //Error state Handler -- Clears all entries
     if (errorState === true){
         allClear()
         errorState = false; 
     }
-    //If the button has the class of btn-op (operators)
     if (this.classList.contains("btn-op")){
     
         if(num1 != '' && num2 != ''){
             getResult()    
         }
-        //If a new operator is selected  
+    
         if (userInput != operatorDisplay){
             assignOperator(userInput)
         }
-        //When an OP is clicked, assign num1 as the operand 
+   
        if(num1 === ''){ 
        num1 = operand
        }
-        // Assign the Operator via the User Input
+      
         assignOperator(userInput) 
-        
-        //Update Bottom Display 
         updateDisplay(result)
-       
-        // Clear operand
         operand = ''
-        //Return num1 
         return num1;  
     }
 
-    //Set the operand to be the user input, and concatenate any new number inputted
         operand = operand.concat(userInput)
-    //Update the display with the operand 
         updateDisplay(operand)
 
-    //IF num1 has already been set, set num2 to opperand
         if (num1 != '' ){
             num2 = operand         
     }
